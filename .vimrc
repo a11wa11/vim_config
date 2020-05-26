@@ -1,9 +1,8 @@
 ":PluInstallでプラグインをインストールする      https://github.com/junegunn/vim-plug/wiki/tutorial
 call plug#begin('~/.vim/plugged')
-    "Gitを使用する
-    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-fugitive'           "gitを使用する
+    Plug 'tomtom/tcomment_vim'         "コメントON/OFFを(ctl+/)を2回で実行
 call plug#end()
-
 
 "マウス・カーソル"  {{{
 set mouse=a                                         "マウスの入力を受け付ける
