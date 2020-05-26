@@ -17,4 +17,13 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 :PlugClean
 ```
 
+## 折畳みコマンド
+`zo`    カーソル下の折り畳みを一段階開く
+`zO`    カーソル下の折り畳みを全て開く
+`zc`    カーソル下の折り畳みを一段階閉じる
+`zC`    カーソル下の折り畳みを全て閉じる
+`zm`    折り畳み全てを一段階開く
+`zM`    折り畳み全てを開く
+`zr`    折り畳み全てを一段階閉じる
+`zR`    折り畳み全てを閉じる
 

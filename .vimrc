@@ -46,7 +46,7 @@ set foldmethod=marker                               "折りたたみを{*3 と }
 nnoremap j gj
 nnoremap k gk
 nnoremap <down> gj
-nnozemap <up> gk
+nnoremap <up> gk
 "}}}
 
 "編集関係"
