@@ -1,8 +1,9 @@
 "プラグイン設定
 "{{{
 call plug#begin('~/.vim/plugged')
-    Plug 'tpope/vim-fugitive'           "gitを使用する
-    Plug 'tomtom/tcomment_vim'          "コメントON/OFFを(ctl+/)を2回で実行
+    Plug 'tpope/vim-fugitive'               "gitを使用する
+    Plug 'tomtom/tcomment_vim'              "コメントON/OFFを(ctl+/)を2回で実行
+    Plug 'nathanaelkane/vim-indent-guides'  "インデントに色を付ける
 call plug#end()
 "}}}
 
@@ -57,7 +58,6 @@ set textwidth=0                                     "vimが勝手に自動改行
 set backspace=indent,eol,start                      "Backspaceキーの影響範囲に制限を設けない
 set virtualedit=onemore                             "行末にテキストがなくてもカーソルを行末以降に移動させることができる
 set showmatch                                       "閉じ括弧が入力されたとき、対応する開き括弧にわずかの間ジャンプする
-set iminsert=2                                      "インサートモードから抜けると自動的にIMEをオフにする
 "}}}
 
 "保存関係
