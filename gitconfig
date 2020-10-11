@@ -1,0 +1,15 @@
+[user]
+	name = XXX
+	email = xxxxxx@xxxx.com
+[alias]
+    co = checkout
+    st = status
+    ft = fetch
+    br = branch
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
+[core]
+    excludesfile = ~/.gitignore_global
+
