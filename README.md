@@ -1,5 +1,11 @@
 # vimの設定
 
+## .vimrcの紐付け
+
+```
+ln -snf $(pwd)/vimrc ~/.vimrc
+```
+
 ## vim-plugの使用法
 
 1. vim-plug　を下記のコマンドでインストール
@@ -27,4 +33,13 @@ zm    #折り畳み全てを一段階開く
 zM    #折り畳み全てを開く
 zr    #折り畳み全てを一段階閉じる
 zR    #折り畳み全てを閉じる
+```
+
+# gitの設定
+
+## gitの設定の紐付け
+
+```
+ln -snf $(pwd)/gitconfig ~/.gitconfig
+ln -snf $(pwd)/gitignore_global ~/.gitignore_global
 ```
