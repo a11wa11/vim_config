@@ -1,6 +1,6 @@
 [user]
-	name = XXX
-	email = xxxxxx@xxxx.com
+    name = XXX
+    email = xxxxxx@xxxx.com
 [alias]
     co = checkout
     st = status
