@@ -2,13 +2,14 @@
 # https://qiita.com/atomyah/items/887a5185ec9a8206c7c4
 # https://sandas.hatenablog.com/entry/2021/04/10/024745
 # https://www.atmarkit.co.jp/ait/articles/1806/28/news043.html
-# https://goodbyegangster.hatenablog.com/entry/2019/05/02/0533037405-1
+# https://goodbyegangster.hatenablog.com/entry/2019/05/02/053303
 # https://qiita.com/moiwa/items/c320c7073a7ef086c5c9 -7
 # https://docs.docker.com/engine/install/ubuntu/ 
-# https://www.karelie.net/how-to-install-google-chrome-on-ubuntu/google-chrome
+# https://www.karelie.net/how-to-install-google-chrome-on-ubuntu 
 # https://tech.unifa-e.com/entry/2018/05/18/112810
-# https://github.com/rbenv/ruby-build/wiki/ruby-build
+# https://github.com/rbenv/ruby-build/wiki
 # https://tekunabe.hatenablog.jp/entry/2019/08/29/ansible_counter_enabled
+# https://zaki-hmkc.hatenablog.com/entry/2020/12/12/124353
 
 - hosts: ubuntu
   become: yes
@@ -16,10 +17,33 @@
   tasks:
     - name: ubuntuの共通初期設定
       block:
-        - name: 1. インストール済のパッケージを新しいバージョンにアップグレード (apt upgrad)
+        - name: 1-1. インストール済のパッケージを新しいバージョンにアップグレード (apt upgrad)
           apt: upgrade=full
           register: result
         - debug: msg={{result.stdout_lines}}
+
+        - name: 1-2. 必須のパッケージをインストール
+          package:
+            name: 
+              - tree
+              - git
+              - net-tools
+            state: present
+
+      rescue:
+        - name: Rollback package
+          package:
+            name: tree
+            state: absent
+
+        - name: Rollback net-tools
+          package:
+            name: net-tools
+            state: absent
+
+      always:
+        - debug:
+            msg: This always runs, regardless
 
         - name: 2-0 sudoコマンド実行時にパスワードを求められないようにする
           block:
@@ -59,14 +83,12 @@
                 name:
                   - manpages-ja
                   - manpages-ja-dev
-                  - git
                 state: present
 
         - name: 4. ローカルからssh可能にする
           lineinfile:
             path: /etc/ssh/sshd_config
             backrefs: yes
-            backup: yes
             regexp: '^PasswordAuthentication no'
             line: PasswordAuthentication yes
 
@@ -155,8 +177,7 @@
                 creates: ~/.anyenv/envs/pyenv
 
             - name: 7-8. anyenvを使用するため、シェルの更新
-              # shell: "exec $SHELL -l"
-              shell: . ~/.profile
+              shell: ". ~/.profile"
 
             - name: 7-9. rbenvに必要なパッケージのインストール
               become: yes
@@ -198,8 +219,8 @@
         - name: 8. その他のツールのインストール
           apt:
             name: 
-              - net-tools
               - tree
+              - net-tools
             state: present
 
         - name: 9. デスクトップツールのインストール(apt install xfce4 xrdp)

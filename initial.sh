@@ -12,10 +12,11 @@ git_email=`git config --get user.email`
 register_git_info () {
     target=$1
     target_jp=$2
-    echo -e "Please input your ${target} on git.\\n〜gitの登録${target_jp}を入力してください〜\\n"
+    echo "Please input your ${target} on git."
+    echo "〜gitの登録${target_jp}を入力してください〜"
     read -p ">>> " git_var
     git config --global user.${target} ${git_var}
-    echo -e "\\n   gitの登録${target_jp}は -> ${git_var} です\n"
+    echo "   gitの登録${target_jp}は -> ${git_var} です"
 }
 
 [ ! ${git_name} ] && register_git_info "name" "名"
@@ -33,3 +34,6 @@ fi
 [ ! -e ~/.bashrc ] && cp ~/my-config/bash/bashrc.txt ~/.bashrc
 
 . ~/.bashrc
+
+#sudo sed -ie 's/^#log_path = \var\/log\/ansible.log/log_path = \var\/tmp\/ansible.log/g' /etc/ansible/ansible.cfg
+#sudo sed -ie 's/^#stdout_callback = skippy/#stdout_callback = skippy\nstdout_callback = counter_enabled/g' /etc/ansible/ansible.cfg

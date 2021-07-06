@@ -14,5 +14,5 @@ RUN yum update -y && \
     yum install -y tree vim wget openssl-devel epel-release openssh-server
 ## rootパスワードを設定
 RUN echo "password" | passwd --stdin root
-EXPOSE 50021
+EXPOSE 50121
 CMD /sbin/init

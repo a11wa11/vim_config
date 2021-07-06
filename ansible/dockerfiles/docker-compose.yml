@@ -8,7 +8,20 @@ services:
     container_name: my_centos7
     hostname: CentOS7
     ports:
-      - "50021:22"
+      - "50121:22"
+    tty: true
+    privileged: true
+    command: /sbin/init
+
+  CentOS8:
+    build:
+      context: .
+      dockerfile: "Dockerfile_centos8"
+    image: my_centos8
+    container_name: my_centos8
+    hostname: CentOS8
+    ports:
+      - "50122:22"
     tty: true
     privileged: true
     command: /sbin/init
