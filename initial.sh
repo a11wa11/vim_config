@@ -3,8 +3,8 @@
 # brewのアンインストール
 #ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
 # brewのインストール
+# M1チップの場合は、「Rossetaを使用して開く」をターミナルに設定してから実行しないとHOME BREWはインストールできない
 [ ! -e /usr/local/bin/brew ] && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
 # gitの初期設定
 git_name=`git config --get user.name`
 git_email=`git config --get user.email`
@@ -31,9 +31,7 @@ fi
 
 # 初期設定するリポジトリをクローン
 [ ! -e ~/my-config ] && git clone https://github.com/a11wa11/my-config.git ~/my-config
-[ ! -e ~/.bashrc ] && cp ~/my-config/bash/bashrc.txt ~/.bashrc
-
-. ~/.bashrc
+[ ! -e ~/.*shrc ] && sh ~/my-config/setting.sh
 
 #sudo sed -ie 's/^#log_path = \var\/log\/ansible.log/log_path = \var\/tmp\/ansible.log/g' /etc/ansible/ansible.cfg
 #sudo sed -ie 's/^#stdout_callback = skippy/#stdout_callback = skippy\nstdout_callback = counter_enabled/g' /etc/ansible/ansible.cfg
