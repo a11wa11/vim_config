@@ -35,3 +35,9 @@ fi
 
 #sudo sed -ie 's/^#log_path = \var\/log\/ansible.log/log_path = \var\/tmp\/ansible.log/g' /etc/ansible/ansible.cfg
 #sudo sed -ie 's/^#stdout_callback = skippy/#stdout_callback = skippy\nstdout_callback = counter_enabled/g' /etc/ansible/ansible.cfg
+brew install anyenv jq tree ansible@2.9
+brew install google-chrome brave-browser firefox
+brew install docker zoom discord
+brew install iterm2 cheatsheet
+brew install google-japanese-ime hyperswitch itsycal
+brew install mi visual-studio-code
