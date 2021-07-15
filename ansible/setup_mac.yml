@@ -1,0 +1,23 @@
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: 1. homebrewでパッケージのインストール
+      homebrew: 
+        name: 
+          - jq
+          - tree
+          - docker
+          - anyenv
+        path: /opt/homebrew/bin
+        state: present
+#      register: result
+#    - debug: msg={{result.stdout_lines}}
+
+    - name: 2. chromeのインストール
+      community.general.homebrew_cask: 
+        name: google-chrome
+        path: /opt/homebrew/bin
+        state: present
+#      register: result
+#    - debug: msg={{result.stdout_lines}}
+

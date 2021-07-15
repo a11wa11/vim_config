@@ -1,3 +1,14 @@
+[mac]
+localhost
+#127.0.0.1
+ansible_port=22
+ansible_ssh_user=awa_mbp
+#ansible_ssh_private_key_file=~/.ssh/id_rsa
+ansible_password=madara1577
+
+[localhost]
+127.0.0.1
+
 [linux:children]
 centos
 ubuntu
