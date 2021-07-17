@@ -6,7 +6,6 @@
         name: 
           - jq
           - tree
-          - docker
           - anyenv
         path: /opt/homebrew/bin
         state: present
@@ -15,7 +14,24 @@
 
     - name: 2. chromeのインストール
       community.general.homebrew_cask: 
-        name: google-chrome
+        name: 
+          - google-chrome
+          - firefox
+          - microsoft-edge
+          - brave-browser
+          - iterm2
+          - docker
+          - cheatsheet
+#          - visual-studio-code
+          - pycharm-ce
+#          - mi
+#          - zoom
+          - discode
+#          - itsyscal
+#          - hyperswitch
+#          - google-japanse-ime
+#          - mysqlworkbench
+#          - dbeaver-community
         path: /opt/homebrew/bin
         state: present
 #      register: result
